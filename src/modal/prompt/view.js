@@ -1,6 +1,7 @@
 import {ItemView} from 'backbone.marionette';
 import {Model} from 'backbone';
 import template from './template.hbs';
+import {lang} from '../../application/i18n';
 
 export default ItemView.extend({
   template: template,
@@ -27,5 +28,11 @@ export default ItemView.extend({
     e.preventDefault();
     var val = this.ui.input.val();
     this.trigger('submit', val);
-  }
+  },
+
+  templateHelpers() {
+    return {
+      lang,
+    };
+  },
 });

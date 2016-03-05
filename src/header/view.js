@@ -2,6 +2,7 @@ import _ from 'lodash';
 import {history} from 'backbone';
 import {ItemView} from 'backbone.marionette';
 import template from './template.hbs';
+import {lang} from '../application/i18n';
 
 export default ItemView.extend({
   template: template,
@@ -18,6 +19,7 @@ export default ItemView.extend({
 
   templateHelpers() {
     return {
+      lang,
       primaryItems   : this.serializeWhere({ type: 'primary' }),
       secondaryItems : this.serializeWhere({ type: 'secondary' })
     };

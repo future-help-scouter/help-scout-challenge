@@ -1,6 +1,7 @@
 import {ItemView} from 'backbone.marionette';
 import {Model} from 'backbone';
 import template from './template.hbs';
+import {lang} from '../../application/i18n';
 
 export default ItemView.extend({
   template: template,
@@ -12,5 +13,11 @@ export default ItemView.extend({
   triggers: {
     'click .btn-primary' : 'confirm',
     'click .close'       : 'cancel'
-  }
+  },
+
+  templateHelpers() {
+    return {
+      lang,
+    };
+  },
 });

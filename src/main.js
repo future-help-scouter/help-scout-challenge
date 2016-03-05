@@ -11,6 +11,8 @@ import FlashesService from './flashes/service';
 import IndexRouter from './index/router';
 import BooksRouter from './books/router';
 
+import {lang} from './application/i18n';
+
 let app = new Application();
 
 ModalService.setup({
@@ -28,7 +30,7 @@ FlashesService.setup({
 $(document).ajaxError(() => {
   FlashesService.add({
     type: 'danger',
-    title: 'Server Error'
+    title: lang.serverError,
   });
 });
 
