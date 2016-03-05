@@ -26,4 +26,3 @@ kick-started with [Marionette Wires](https://github.com/thejameskyle/marionette-
 ## TODO
 
 * implement database
-* strings

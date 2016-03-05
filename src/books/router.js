@@ -3,6 +3,8 @@ import HeaderService from '../header/service';
 import LayoutView from './layout-view';
 import IndexRoute from './index/route';
 import ShowRoute from './show/route';
+import AddRoute from './add/route';
+import {lang} from '../application/i18n';
 
 export default Router.extend({
   initialize(options = {}) {
@@ -10,9 +12,15 @@ export default Router.extend({
     this.listenTo(this, 'before:enter', this.onBeforeEnter);
 
     HeaderService.request('add', {
-      name: 'Books',
+      name: lang.books,
       path: 'books',
       type: 'primary'
+    });
+
+    HeaderService.request('add', {
+      name: lang.add,
+      path: 'add-book',
+      type: 'secondary'
     });
   },
 
@@ -26,7 +34,9 @@ export default Router.extend({
 
   routes: {
     'books'     : 'index',
-    'books/:id' : 'show'
+    'books/:id' : 'show',
+
+    'add-book' : 'addBook',
   },
 
   index() {
@@ -37,5 +47,9 @@ export default Router.extend({
     return new ShowRoute({
       layout: this.layout
     });
-  }
+  },
+
+  addBook() {
+    return new AddRoute();
+  },
 });

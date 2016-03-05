@@ -10,6 +10,8 @@ export const lang = {
     ok: 'OK',
     cancel: 'Cancel',
 
+    add: 'Add',
+
     toggleNav: 'Toggle navigation',
     serverError: 'Server Error',
 };
