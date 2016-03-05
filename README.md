@@ -21,3 +21,9 @@ Browse to [http://localhost:3000/](http://localhost:3000/).
 
 kick-started with [Marionette Wires](https://github.com/thejameskyle/marionette-wires)
 &copy; 2014 James Kyle. Distributed under [ISC license](LICENSE.md).
+
+
+## TODO
+
+* implement database
+* strings
