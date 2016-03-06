@@ -38,3 +38,14 @@ As a general rule, be sure to read through all of the source code yourself and m
 ===
 
 &copy; 2014 James Kyle. Distributed under [ISC license](LICENSE.md).
+
+
+# TODO
+* move create link from colors to books list
+
+create book template
+  - dynamically generate fields
+  - use textarea for description
+  - use a better tool for year input
+  - show validation errors on field
+  - create generic validators that return message for use in models
