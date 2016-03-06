@@ -4,6 +4,7 @@ import LayoutView from './layout-view';
 import IndexRoute from './index/route';
 import CreateRoute from './create/route';
 import ShowRoute from './show/route';
+import ShowSingleRoute from './show-single/route';
 
 export default Router.extend({
   initialize(options = {}) {
@@ -38,7 +39,8 @@ export default Router.extend({
   routes: {
     'books'     : 'index',
     'books/new' : 'create',
-    'books/:id' : 'show'
+    // 'books/:id' : 'show',
+    'books/:id' : 'showSingle',
   },
 
   index() {
@@ -60,6 +62,12 @@ export default Router.extend({
 
     return new ShowRoute({
       layout: this.layout
+    });
+  },
+
+  showSingle() {
+    return new ShowSingleRoute({
+      container: this.container
     });
   }
 });

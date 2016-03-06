@@ -49,3 +49,6 @@ create book template
   - use a better tool for year input
   - show validation errors on field
   - create generic validators that return message for use in models
+
+view book template
+  - generate fields dynamically
