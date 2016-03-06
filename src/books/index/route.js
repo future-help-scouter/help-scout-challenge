@@ -5,6 +5,7 @@ import storage from '../storage';
 
 export default Route.extend({
   initialize(options = {}) {
+    this.query = options.query;
     this.layout = options.layout;
     this.container = options.container;
     this.listenTo(this, 'fetch', this.onFetch);
@@ -18,17 +19,15 @@ export default Route.extend({
 
   render() {
     this.library = new LibraryView({
-      collection: this.collection
+      collection: this.collection,
+      thumbs: !!this.query.thumbs,
     });
 
-    this.tools = new ToolsView();
-    this.listenTo(this.tools, 'books:list:toggle', this.onToolsToggle);
+    this.tools = new ToolsView({
+      thumbs: !!this.query.thumbs,
+    });
 
     this.layout.library.show(this.library);
     this.layout.tools.show(this.tools);
-  },
-
-  onToolsToggle() {
-    this.library.toggle();
   },
 });

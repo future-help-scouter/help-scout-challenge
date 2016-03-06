@@ -5,27 +5,22 @@ import ItemView from './item-view';
 import ItemViewGrid from './item-view-grid';
 
 export default CompositeView.extend({
-
+  // TODO: see if we can use CollectionView now that we are not rerendering
   template,
   childViewContainer: '.items',
+
+  initialize(options = {}) {
+    this.thumbs = options.thumbs;
+  },
 
   templateHelpers() {
     // TODO: lang
     return {
-      listStyle: !!this.displayAsThumb ? 'thumbs' : 'list',
+      listStyle: !!this.thumbs ? 'thumbs' : 'list',
     };
   },
 
   getChildView() {
-    return !!this.displayAsThumb ? ItemViewGrid : ItemView;
-  },
-
-  toggle() {
-    // TODO: double-check this, it seems weird
-    this.displayAsThumb = !this.displayAsThumb;
-
-    // Use a composite view so that when rerendering, we can
-    // swap the class used to indicate list/thumbs.
-    this.render();
-  },
+    return !!this.thumbs ? ItemViewGrid : ItemView;
+  }
 });

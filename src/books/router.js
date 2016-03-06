@@ -45,17 +45,18 @@ export default Router.extend({
   },
 
   routes: {
-    'books'     : 'index',
-    'books/new' : 'create',
-    // 'books/:id' : 'show',
+    'books': 'index',
+    'books?*query': 'index',
+    'books/new': 'create',
     'books/:id' : 'showSingle',
   },
 
-  index() {
+  index(query = {}) {
     this.ensureLayoutIsPresent();
 
     return new IndexRoute({
       layout: this.layout,
+      query,
     });
   },
 
