@@ -26,13 +26,7 @@ export default Route.extend({
       model: this.model
     });
 
-    try {
-      // TODO: figure out why the layout doesn't have this stuff
-      // Look at initialize.
-      this.layout.library.show(this.library);
-      this.layout.viewer.show(this.viewer);
-    } catch (e) {
-      console.warn('the layout is not complete', e);
-    }
+    this.layout.library.show(this.library);
+    this.layout.viewer.show(this.viewer);
   }
 });

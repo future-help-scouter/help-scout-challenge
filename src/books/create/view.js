@@ -34,6 +34,7 @@ export default ItemView.extend({
       this.model.set(this.form);
       storage.save(this.model).then(() => {
         nprogress.done();
+        // TODO: select the book we just created
         history.navigate('books', { trigger: true });
       }, (/*err*/) => {
         // TODO: handle save failure

@@ -18,11 +18,21 @@ export default Router.extend({
   },
 
   onBeforeEnter() {
-    this.layout = new LayoutView();
-    this.container.show(this.layout);
+    this.createLayoutView();
     HeaderService.request('activate', {
       path: 'books'
     });
+  },
+
+  createLayoutView() {
+    this.layout = new LayoutView();
+    this.container.show(this.layout);
+  },
+
+  isLayoutComplete() {
+    const {layout = {}} = this;
+    const {library} = layout;
+    return !!library;
   },
 
   routes: {
@@ -42,6 +52,12 @@ export default Router.extend({
   },
 
   show() {
+    if (!this.isLayoutComplete()) {
+      // TODO: listen to another event to make sure this is set
+      // up correctly
+      this.createLayoutView();
+    }
+
     return new ShowRoute({
       layout: this.layout
     });
