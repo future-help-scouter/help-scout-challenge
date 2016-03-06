@@ -8,7 +8,7 @@ import {lang} from '../../application/i18n';
 
 export default ItemView.extend({
   template: template,
-  className: 'colors colors--create container',
+  className: 'books books--create container',
 
   behaviors: {
     form: { behaviorClass: FormBehavior }

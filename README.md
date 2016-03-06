@@ -29,7 +29,6 @@ Once that's done, open up http://localhost:9000/ in your browser.
 
 # TODO
 
-* remove colors
 * strings
 
 create book template
@@ -41,12 +40,3 @@ create book template
 
 view book template
   - generate fields dynamically
-
-edit book
-  - use textarea for desc
-  - use better tool for year input
-  - show image preview
-
-in book CRUD pages, clean up "colors" references in DOM and less
-
-*

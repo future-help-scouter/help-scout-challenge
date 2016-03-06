@@ -8,7 +8,7 @@ import {lang} from '../../application/i18n';
 
 export default ItemView.extend({
   template: template,
-  className: 'colors colors--show container',
+  className: 'books books--show container',
 
   initialize(options = {}) {
     this.model = options.model;
