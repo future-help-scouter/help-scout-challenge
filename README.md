@@ -48,3 +48,5 @@ edit book
   - show image preview
 
 in book CRUD pages, clean up "colors" references in DOM and less
+
+*

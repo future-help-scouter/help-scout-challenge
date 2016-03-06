@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Books: Create</h1>
+  <h1>{{lang.create.title}}</h1>
 </div>
 
 <form class="colors__form form-horizontal well" role="form">
@@ -14,43 +14,44 @@
   {{/if}}
 
   <div class="form-group">
-    <label class="col-sm-1 control-label" for="title">Title</label>
+    <label class="col-sm-1 control-label" for="title">{{lang.book.title}}</label>
     <div class="col-sm-11">
-      <input class="form-control" name="title" type="text" placeholder="Title">
+      <input class="form-control" name="title" type="text" placeholder="{{lang.book.title}}">
     </div>
   </div>
 
   <div class="form-group">
-    <label class="col-sm-1 control-label" for="author">Author</label>
+    <label class="col-sm-1 control-label" for="author">{{lang.book.author}}</label>
     <div class="col-sm-11">
-      <input class="form-control" name="author" type="text" placeholder="Author">
+      <input class="form-control" name="author" type="text" placeholder="{{lang.book.author}}">
     </div>
   </div>
 
   <div class="form-group">
-    <label class="col-sm-1 control-label" for="year">Year</label>
+    <label class="col-sm-1 control-label" for="year">{{lang.book.year}}</label>
     <div class="col-sm-11">
-      <input class="form-control" name="year" type="text" placeholder="Year">
+      <input class="form-control" name="year" type="text" placeholder="{{lang.book.year}}">
     </div>
   </div>
 
   <div class="form-group">
-    <label class="col-sm-1 control-label" for="description">Description</label>
+    <label class="col-sm-1 control-label" for="description">{{lang.book.description}}</label>
     <div class="col-sm-11">
-      <input class="form-control" name="description" type="text" placeholder="Description">
+      <input class="form-control" name="description" type="text" placeholder="{{lang.book.description}}">
     </div>
   </div>
 
   <div class="form-group">
-    <label class="col-sm-1 control-label" for="img">Image</label>
+    <label class="col-sm-1 control-label" for="img">{{lang.book.image}}</label>
     <div class="col-sm-11">
-      <input class="form-control" name="img" type="text" placeholder="Image">
+      <input class="form-control" name="img" type="text" placeholder="{{lang.book.image}}">
     </div>
   </div>
 
   <div class="form-group">
     <div class="col-sm-offset-1 col-sm-11">
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="button" class="btn btn-default cancel">{{lang.cancel}}</button>
+      <button type="submit" class="btn btn-primary">{{lang.submit}}</button>
     </div>
    </div>
 </form>

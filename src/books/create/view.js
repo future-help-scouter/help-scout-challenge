@@ -4,6 +4,7 @@ import FormBehavior from '../../forms/behavior';
 import {history} from 'backbone';
 import template from './template.hbs';
 import storage from '../storage';
+import {lang} from '../../application/i18n';
 
 export default ItemView.extend({
   template: template,
@@ -15,12 +16,14 @@ export default ItemView.extend({
 
   templateHelpers() {
     return {
-      errors: this.errors
+      errors: this.errors,
+      lang,
     };
   },
 
   events: {
-    'submit form': 'handleSubmit'
+    'submit form': 'handleSubmit',
+    'click .cancel': 'handleCancel',
   },
 
   handleSubmit() {
@@ -34,11 +37,14 @@ export default ItemView.extend({
       this.model.set(this.form);
       storage.save(this.model).then(() => {
         nprogress.done();
-        // TODO: select the book we just created
         history.navigate(`books/${this.model.id}`, { trigger: true });
       }, (/*err*/) => {
         // TODO: handle save failure
       });
     }
-  }
+  },
+
+  handleCancel() {
+    history.navigate('books', { trigger: true });
+  },
 });

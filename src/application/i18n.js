@@ -5,6 +5,15 @@ export const lang = {
   edit: 'Edit',
   cancel: 'Cancel',
   ok: 'OK',
+  submit: 'Submit',
+
+  book: {
+    title: 'Title',
+    author: 'Author',
+    year: 'Year',
+    description: 'Description',
+    image: 'Image',
+  },
 
   confirmBookDestroyTitle: 'Confirm Book Destruction',
   confirmBookDestroyMessage: 'Are you sure you want to destroy this book?',
@@ -12,4 +21,12 @@ export const lang = {
   bookDestroyedTitle: 'It\'s gone!',
   bookDestroyedMessage: 'That book will bother you no more.',
 
+  layout: {
+    title: 'Books',
+    createBtn: 'Add a Book',
+  },
+
+  create: {
+    title: 'Add a Book',
+  },
 };
