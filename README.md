@@ -32,11 +32,9 @@ Once that's done, open up http://localhost:9000/ in your browser.
 * strings
 
 create book template
-  - dynamically generate fields
   - use textarea for description
   - use a better tool for year input
   - show validation errors on field
   - create generic validators that return message for use in models
 
-view book template
-  - generate fields dynamically
+* toggle list/grid view

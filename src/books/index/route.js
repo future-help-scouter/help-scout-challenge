@@ -1,5 +1,6 @@
 import {Route} from 'backbone-routing';
 import LibraryView from '../library/collection-view';
+import ToolsView from '../tools/view';
 import storage from '../storage';
 
 export default Route.extend({
@@ -20,7 +21,14 @@ export default Route.extend({
       collection: this.collection
     });
 
+    this.tools = new ToolsView();
+    this.listenTo(this.tools, 'books:list:toggle', this.onToolsToggle);
+
     this.layout.library.show(this.library);
-    // this.layout.viewer.show(this.viewer);
-  }
+    this.layout.tools.show(this.tools);
+  },
+
+  onToolsToggle() {
+    this.library.toggle();
+  },
 });
