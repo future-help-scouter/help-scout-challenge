@@ -44,7 +44,9 @@ export default Router.extend({
   },
 
   index() {
-    return new IndexRoute();
+    return new IndexRoute({
+      container: this.container,
+    });
   },
 
   create() {
