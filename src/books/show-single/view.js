@@ -22,21 +22,16 @@ export default ItemView.extend({
   },
 
   events: {
-    'click .colors__toggle' : 'handleToggle',
-    'click .colors__destroy' : 'handleDestroy'
+    'click .books__back' : 'handleBack',
+    'click .books__destroy' : 'handleDestroy'
   },
 
   modelEvents: {
     all: 'render'
   },
 
-  handleToggle() {
-    this.model.set('active', !this.model.get('active'));
-    this.model.save().fail(() => this.handleToggleFailure());
-  },
-
-  handleToggleFailure() {
-    this.model.set('active', this.model.previous('active'));
+  handleBack() {
+    history.navigate('books', { trigger: true });
   },
 
   handleDestroy() {

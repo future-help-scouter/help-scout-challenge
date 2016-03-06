@@ -6,6 +6,7 @@ export const lang = {
   cancel: 'Cancel',
   ok: 'OK',
   submit: 'Submit',
+  back: 'Back',
 
   book: {
     title: 'Title',
@@ -28,5 +29,6 @@ export const lang = {
 
   create: {
     title: 'Add a Book',
+    createBtn: 'Create',
   },
 };

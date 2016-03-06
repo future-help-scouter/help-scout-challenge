@@ -22,11 +22,11 @@ export default ItemView.extend({
   },
 
   events: {
-    'submit form': 'handleSubmit',
-    'click .cancel': 'handleCancel',
+    'click .books__create': 'handleCreate',
+    'click .books__cancel': 'handleCancel',
   },
 
-  handleSubmit() {
+  handleCreate() {
     let errors = this.model.validate(this.form);
 
     if (errors) {

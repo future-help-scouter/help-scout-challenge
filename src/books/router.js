@@ -5,7 +5,6 @@ import IndexRoute from './index/route';
 import CreateRoute from './create/route';
 import ShowRoute from './show/route';
 import ShowSingleRoute from './show-single/route';
-import EditRoute from './edit/route';
 
 export default Router.extend({
   initialize(options = {}) {
@@ -50,7 +49,6 @@ export default Router.extend({
     'books/new' : 'create',
     // 'books/:id' : 'show',
     'books/:id' : 'showSingle',
-    'books/:id/edit' : 'edit',
   },
 
   index() {
@@ -77,12 +75,6 @@ export default Router.extend({
 
   showSingle() {
     return new ShowSingleRoute({
-      container: this.container
-    });
-  },
-
-  edit() {
-    return new EditRoute({
       container: this.container
     });
   },
