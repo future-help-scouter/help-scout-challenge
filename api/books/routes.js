@@ -4,10 +4,47 @@ var collection = new Backbone.Collection(fixture);
 
 var id = collection.length;
 
+// TODO: move utilities into helpers module
+var getComparableValues = function (a, b) {
+  if (typeof a === 'string' || typeof b === 'string') {
+    a = (a + '').toLowerCase();
+    b = (b + '').toLowerCase();
+  }
+  return [a, b];
+};
+
+// case-insensitive sorting
+var sortArray = function (arr, field, ascending) {
+  var direction = ascending ? 1 : -1;
+
+  return arr.sort(function (a, b) {
+    var result = 0;
+    var comparable = getComparableValues(a.get(field), b.get(field));
+
+    if (comparable[0] > comparable[1]) {
+      result = 1 * direction;
+    } else if (comparable[0] < comparable[1]) {
+      result = -1 * direction;
+    }
+
+    return result;
+  });
+};
+
+// ===============================================================================
+
+
 module.exports = function(api) {
   api.route('/api/books')
     .get(function(req, res) {
-      res.json(collection);
+
+      var field = req.query.field || 'title';
+      var desc = req.query.desc === 'true';
+
+      // Use custom sort instead of _.sortBy for case-insensitive sorting.
+      var books = sortArray(collection.models, field, !desc);
+
+      res.json(books);
     })
     .post(function(req, res) {
       var model = new Backbone.Model(req.body);

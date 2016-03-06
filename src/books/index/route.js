@@ -19,7 +19,10 @@ export default Route.extend({
       },
     };
 
-    // force a fetch so the backend can handle sorting and filtering for us
+    // Force a fetch so the backend can handle sorting, filtering,
+    // and paging for us.
+    // TODO: Do not force a fetch if we're just changing
+    // to/from thumbs view.
     return storage.findAll(options, true).then(collection => {
       this.collection = collection;
     });
