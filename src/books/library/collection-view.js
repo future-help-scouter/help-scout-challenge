@@ -1,9 +1,25 @@
 import {CollectionView} from 'backbone.marionette';
 import ItemView from './item-view';
+import template from './collection-template.hbs';
 
 export default CollectionView.extend({
-  className: 'list-group',
-  childView: ItemView,
+  template: template,
+
+  templateHelpers() {
+    return {
+      displayAsThumb: !!this.displayAsThumb,
+    };
+  },
+
+  getChildView() {
+    return !!this.displayAsThumb ? ItemView : ItemView;
+  },
+
+  // attributes() {
+  //   return {
+  //     class: (!!this.displayAsThumb ? '' : 'list-group'),
+  //   };
+  // },
 
   childViewOptions() {
     return {
