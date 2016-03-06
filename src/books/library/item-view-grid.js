@@ -1,5 +1,5 @@
 import {ItemView} from 'backbone.marionette';
-import template from './item-template.hbs';
+import template from './grid-template.hbs';
 
 export default ItemView.extend({
   template,
@@ -7,7 +7,7 @@ export default ItemView.extend({
 
   attributes() {
     return {
-      class : 'list-group-item',
+      class : 'grid-item',
       href  : `#books/${this.model.get('id')}`
     };
   },

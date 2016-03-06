@@ -7,7 +7,6 @@ export default LayoutView.extend({
   className: 'container',
   regions: {
     library : '.books__library',
-    viewer  : '.books__viewer',
     tools   : '.books__tools',
   },
   templateHelpers() {

@@ -6,6 +6,21 @@
     width: 100%;
     height: 100%;
   }
+
+  .items.thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .grid-item {
+      flex: 0 1 auto;
+      max-width: 200px;
+
+      .img-thumbnail {
+        max-height: 150px;
+      }
+    }
+  }
 }
 
 #nprogress {
