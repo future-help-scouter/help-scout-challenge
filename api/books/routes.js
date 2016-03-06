@@ -20,5 +20,15 @@ module.exports = function(api) {
     .get(function(req, res) {
       var model = collection.get(req.params.id);
       res.json(model);
+    })
+    .put(function(req, res) {
+      var model = collection.get(req.params.id);
+      model.set(req.body);
+      res.json(model);
+    })
+    .delete(function(req, res) {
+      var model = collection.get(req.params.id);
+      collection.remove(model);
+      res.json(collection);
     });
 };

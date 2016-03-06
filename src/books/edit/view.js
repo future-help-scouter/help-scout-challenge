@@ -1,13 +1,13 @@
 import nprogress from 'nprogress';
-import {ItemView} from 'backbone.marionette';
-import FormBehavior from '../../forms/behavior';
 import {history} from 'backbone';
+import FormBehavior from '../../forms/behavior';
+import {ItemView} from 'backbone.marionette';
 import template from './template.hbs';
 import storage from '../storage';
 
 export default ItemView.extend({
   template: template,
-  className: 'colors colors--create container',
+  className: 'colors colors--edit container',
 
   behaviors: {
     form: { behaviorClass: FormBehavior }
@@ -15,7 +15,7 @@ export default ItemView.extend({
 
   templateHelpers() {
     return {
-      errors: this.errors
+      errors: this.model.validationError
     };
   },
 
@@ -27,17 +27,14 @@ export default ItemView.extend({
     let errors = this.model.validate(this.form);
 
     if (errors) {
-      this.errors = errors;
+      this.model.validationError = errors;
       this.render();
     } else {
       nprogress.start();
       this.model.set(this.form);
       storage.save(this.model).then(() => {
         nprogress.done();
-        // TODO: select the book we just created
-        history.navigate(`books/${this.model.id}`, { trigger: true });
-      }, (/*err*/) => {
-        // TODO: handle save failure
+        history.navigate('books/' + this.model.id, { trigger: true });
       });
     }
   }

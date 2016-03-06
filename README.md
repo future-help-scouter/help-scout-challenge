@@ -1,7 +1,6 @@
 Marionette Wires
 ================
 
-An opinionated example application built with Marionette.js.
 
 ## Quick start
 
@@ -22,18 +21,6 @@ gulp
 
 Once that's done, open up http://localhost:9000/ in your browser.
 
-## Guide
-
-There are additional `README.md` files all throughout the application. However, the documentation is a work in progress.
-
-As a general rule, be sure to read through all of the source code yourself and make sure you understand what is happening.
-
-| Directories | Purpose |
-| ---:|:--- |
-| [api](./api) | Mock api routes |
-| [dist](./dist) | Built assets |
-| [src](./src) | Source files |
-| [test](./test) | Test files |
 
 ===
 
@@ -41,7 +28,9 @@ As a general rule, be sure to read through all of the source code yourself and m
 
 
 # TODO
-* move create link from colors to books list
+
+* remove colors
+* strings
 
 create book template
   - dynamically generate fields
@@ -52,3 +41,10 @@ create book template
 
 view book template
   - generate fields dynamically
+
+edit book
+  - use textarea for desc
+  - use better tool for year input
+  - show image preview
+
+in book CRUD pages, clean up "colors" references in DOM and less
