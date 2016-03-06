@@ -66,7 +66,7 @@
     "backbone.marionette": "^2.4.4",
     "backbone.radio": "^1.0.2",
     "backbone.service": "^0.5.0",
-    "backbone.storage": "^0.1.0",
+    "backbone.storage": "^0.2.1",
     "backbone.syphon": "^0.6.3",
     "bootstrap": "^3.3.6",
     "browserify-swap": "^0.2.1",

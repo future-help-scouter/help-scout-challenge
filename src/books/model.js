@@ -15,5 +15,5 @@ export default Model.extend({
     }
 
     return errors.length > 0 ? errors : undefined;
-  }
+  },
 });

@@ -4,7 +4,7 @@ import Collection from './collection';
 
 var BooksStorage = Storage.extend({
   model: Model,
-  collection: Collection
+  collection: Collection,
 });
 
 export default new BooksStorage();

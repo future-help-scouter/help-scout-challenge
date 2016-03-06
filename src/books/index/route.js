@@ -12,21 +12,38 @@ export default Route.extend({
   },
 
   fetch() {
-    return storage.findAll().then(collection => {
+    const {desc} = this.getParamOptions();
+    let options = {
+      data: {
+        desc,
+      },
+    };
+
+    // force a fetch so the backend can handle sorting and filtering for us
+    return storage.findAll(options, true).then(collection => {
       this.collection = collection;
     });
   },
 
-  render() {
-    this.library = new LibraryView({
-      collection: this.collection,
+  getParamOptions() {
+    return {
       thumbs: !!this.query.thumbs,
       desc: !!this.query.desc,
+    };
+  },
+
+  render() {
+    const {thumbs, desc} = this.getParamOptions();
+
+    this.library = new LibraryView({
+      collection: this.collection,
+      thumbs,
+      desc,
     });
 
     this.tools = new ToolsView({
-      thumbs: !!this.query.thumbs,
-      desc: !!this.query.desc,
+      thumbs,
+      desc,
     });
 
     this.layout.library.show(this.library);
