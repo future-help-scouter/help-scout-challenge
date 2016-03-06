@@ -36,6 +36,14 @@ export default Router.extend({
     return !!library;
   },
 
+  ensureLayoutIsPresent() {
+    // TODO: listen to another event to make sure this is set
+    // up correctly
+    if (!this.isLayoutComplete()) {
+      this.createLayoutView();
+    }
+  },
+
   routes: {
     'books'     : 'index',
     'books/new' : 'create',
@@ -44,8 +52,10 @@ export default Router.extend({
   },
 
   index() {
+    this.ensureLayoutIsPresent();
+
     return new IndexRoute({
-      container: this.container,
+      layout: this.layout,
     });
   },
 
@@ -56,11 +66,7 @@ export default Router.extend({
   },
 
   show() {
-    if (!this.isLayoutComplete()) {
-      // TODO: listen to another event to make sure this is set
-      // up correctly
-      this.createLayoutView();
-    }
+    this.ensureLayoutIsPresent();
 
     return new ShowRoute({
       layout: this.layout
