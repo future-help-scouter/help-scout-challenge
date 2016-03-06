@@ -21,10 +21,12 @@ export default Route.extend({
     this.library = new LibraryView({
       collection: this.collection,
       thumbs: !!this.query.thumbs,
+      desc: !!this.query.desc,
     });
 
     this.tools = new ToolsView({
       thumbs: !!this.query.thumbs,
+      desc: !!this.query.desc,
     });
 
     this.layout.library.show(this.library);

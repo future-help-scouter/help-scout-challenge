@@ -37,4 +37,5 @@ create book template
   - show validation errors on field
   - create generic validators that return message for use in models
 
-* toggle list/grid view
+
+* when going back to list, restore thumbs
