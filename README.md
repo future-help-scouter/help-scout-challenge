@@ -39,3 +39,6 @@ create book template
 
 
 * when going back to list, restore thumbs
+
+
+* single book view, img is huge when narrow vp

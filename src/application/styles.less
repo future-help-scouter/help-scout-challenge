@@ -7,18 +7,31 @@
     height: 100%;
   }
 
+  // move this into books
   .items.thumbs {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
 
     .grid-item {
       flex: 0 1 auto;
-      max-width: 200px;
+      margin: 5px;
 
       .img-thumbnail {
+        // use min & max to prevent skew
         max-height: 150px;
+        min-height: 150px;
+        // min-width: 150px;
+
+        &.default {
+          height: 150px;
+          width: 100px;
+
+          background-color: #ddd;
+          background-clip: content-box;
+        }
       }
+
     }
   }
 }

@@ -15,6 +15,7 @@ export default ItemView.extend({
   templateHelpers() {
     // TODO: lang
     return {
+      noImage: !this.model.get('img'),
     };
   },
 });
