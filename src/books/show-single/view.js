@@ -21,16 +21,11 @@ export default ItemView.extend({
   },
 
   events: {
-    'click .books__back' : 'handleBack',
     'click .books__destroy' : 'handleDestroy'
   },
 
   modelEvents: {
     all: 'render'
-  },
-
-  handleBack() {
-    history.navigate('books', { trigger: true });
   },
 
   handleDestroy() {

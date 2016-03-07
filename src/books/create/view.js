@@ -28,7 +28,6 @@ export default ItemView.extend({
 
   events: {
     'click .books__create': 'handleCreate',
-    'click .books__cancel': 'handleCancel',
     'click .books__add-field': 'handleAddField',
 
 
@@ -53,11 +52,6 @@ export default ItemView.extend({
         // TODO: handle save failure
       });
     }
-  },
-
-  handleCancel() {
-    // TODO: maintain previous query params
-    history.navigate('books', { trigger: true });
   },
 
   handleAddField(event) {
