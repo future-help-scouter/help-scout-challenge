@@ -34,6 +34,7 @@ export default {
   tools: {
     showThumbnails: 'Show Thumbnails',
     showList: 'Show List',
+    dateAdded: 'Date Added',
   },
 
   create: {

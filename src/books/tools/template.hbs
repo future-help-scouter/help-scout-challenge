@@ -14,6 +14,17 @@
 
       {{/if}}
 
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{activeSortField.lang}} <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu">
+          {{#each inactiveSortFields}}
+            <li><a href="#" class="books__sort-{{this.name}}">{{this.lang}}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+
       <button type="button" class="btn btn-default books__sort-direction" aria-label="{{lang.tools.showList}}">
         <span class="glyphicon glyphicon glyphicon-sort" aria-hidden="true"></span>
       </button>

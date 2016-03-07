@@ -32,21 +32,24 @@ export default Route.extend({
     return {
       thumbs: !!this.query.thumbs,
       desc: !!this.query.desc,
+      field: this.query.field,
     };
   },
 
   render() {
-    const {thumbs, desc} = this.getParamOptions();
+    const {thumbs, desc, field} = this.getParamOptions();
 
     this.library = new LibraryView({
       collection: this.collection,
       thumbs,
       desc,
+      field,
     });
 
     this.tools = new ToolsView({
       thumbs,
       desc,
+      field,
     });
 
     this.layout.library.show(this.library);

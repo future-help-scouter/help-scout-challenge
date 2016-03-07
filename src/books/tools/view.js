@@ -9,20 +9,38 @@ export default ItemView.extend({
   initialize(options = {}) {
     this.thumbs = options.thumbs;
     this.descending = options.desc;
+    this.field = options.field || 'title';
   },
 
   templateHelpers() {
+    // TODO: move this somewhere more controlled
+    let sortFields = [
+      {
+        name: 'title',
+        lang: this.lang.book.title,
+      },
+      {
+        name: 'date',
+        lang: this.lang.tools.dateAdded,
+      }
+    ];
+
+    let inactiveSortFields = sortFields
+      .filter(field => field.name !== this.field);
+
     return {
       lang: this.lang,
       thumbs: this.thumbs,
-      ascending: !this.descending,
-      descending: this.descending,
+      activeSortField: sortFields.find(field => field.name === this.field),
+      inactiveSortFields,
     };
   },
 
   events: {
     'click .books__toggle': 'handleToggle',
     'click .books__sort-direction': 'handleSortDirectionClick',
+    'click .books__sort-title': 'handleSortTitleClick',
+    'click .books__sort-date': 'handleSortDateClick',
   },
 
   handleToggle() {
@@ -32,6 +50,18 @@ export default ItemView.extend({
 
   handleSortDirectionClick() {
     this.descending = !this.descending;
+    this.rerouteWithNewParams();
+  },
+
+  handleSortTitleClick(event) {
+    event.preventDefault();
+    this.field = 'title';
+    this.rerouteWithNewParams();
+  },
+
+  handleSortDateClick(event) {
+    event.preventDefault();
+    this.field = 'date';
     this.rerouteWithNewParams();
   },
 
@@ -47,6 +77,8 @@ export default ItemView.extend({
       this.thumbs ? 'thumbs=1' : '',
 
       this.descending ? 'desc=1' : '',
+
+      this.field ? `field=${this.field}` : '',
 
     ].filter(param => !!param).join('&');
 
