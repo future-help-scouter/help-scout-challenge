@@ -25,6 +25,11 @@ export default {
     createBtn: 'Add a Book',
   },
 
+  tools: {
+    showThumbnails: 'Show Thumbnails',
+    showList: 'Show List',
+  },
+
   create: {
     title: 'Add a Book',
     createBtn: 'Create',

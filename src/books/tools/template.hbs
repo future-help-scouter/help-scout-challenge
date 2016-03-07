@@ -1,13 +1,23 @@
 <div class="row">
   <div class="btn-toolbar pull-left" role="toolbar">
     <div class="btn-group">
-      <button class="books__toggle btn btn-default">{{#if thumbs}} show LiST!! {{else}} show thumbs {{/if}}</button>
+      {{#if thumbs}}
+        <button type="button" class="btn btn-default books__toggle" aria-label="{{lang.tools.showList}}">
+          <span class="glyphicon glyphicon glyphicon glyphicon-th-list
+  " aria-hidden="true"></span>
+        </button>
 
-      <button type="button" class="btn btn-default" aria-label="Left Align">
-        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+      {{else}}
+        <button type="button" class="btn btn-default books__toggle" aria-label="{{lang.tools.showThumbnails}}">
+          <span class="glyphicon glyphicon glyphicon-th-large" aria-hidden="true"></span>
+        </button>
+
+      {{/if}}
+
+      <button type="button" class="btn btn-default books__sort-direction" aria-label="{{lang.tools.showList}}">
+        <span class="glyphicon glyphicon-sort-by-alphabet{{#if descending}}-alt{{/if}}
+" aria-hidden="true"></span>
       </button>
-
-      <button class="books__sort-direction btn btn-default">{{#if descending }} z-a!!! {{else}} a-z!!! {{/if}}</button>
 
     </div>
     <div class="btn-group">

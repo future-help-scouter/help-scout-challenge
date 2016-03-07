@@ -8,4 +8,9 @@ export default LayoutView.extend({
     library : '.books__library',
     tools   : '.books__tools',
   },
+  templateHelpers() {
+    return {
+      lang: this.lang,
+    };
+  },
 });

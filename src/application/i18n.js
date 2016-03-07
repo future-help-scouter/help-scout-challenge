@@ -14,6 +14,7 @@ export function setLang(languageCode) {
   // Add lang to all ItemViews for convenience.
   // TODO: Is there a better or more common way to do this?
   // http://ricostacruz.com/backbone-patterns/mixins.html
-  ItemView.prototype.lang = Model.prototype.lang =
+  ItemView.prototype.lang =
+  Model.prototype.lang =
   loadStrings(languageCode);
 }
