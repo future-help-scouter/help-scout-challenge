@@ -1,6 +1,6 @@
 export default {
   appName: 'Help Scout Challenge',
-  appWelcomeMessage: 'Please enjoy.',
+  appWelcomeMessage: 'Check out some books.',
 
   toggleNav: 'Toggle Navigation',
   books: 'Books',
