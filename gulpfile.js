@@ -73,6 +73,11 @@ gulp.task('scripts', function(cb) {
   bundle(cb, true);
 });
 
+gulp.task('fonts', function() {
+   gulp.src('./node_modules/bootstrap/fonts/*')
+   .pipe(gulp.dest('./dist/fonts'));
+});
+
 gulp.task('jshint', function() {
   return gulp.src(['./src/**/*.js', './test/**/*.js'])
     .pipe($.plumber())
@@ -97,6 +102,7 @@ gulp.task('build', [
   'html',
   'styles',
   'scripts',
+  'fonts',
   'test'
 ]);
 

@@ -29,9 +29,6 @@ Once that's done, open up http://localhost:9000/ in your browser.
 
 # TODO
 
-*
-
-* strings
 
 create book template
   - use textarea for description
@@ -50,3 +47,9 @@ create book template
 * show image preview in book create
 
 * show validation on fields
+* use glyphicons
+
+
+* verify everything builds and runs from scratch
+
+* cp  ./node_modules/bootstrap/fonts/* ./dist/fonts/
