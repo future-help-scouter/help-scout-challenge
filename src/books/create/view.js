@@ -27,17 +27,15 @@ export default ItemView.extend({
   },
 
   events: {
-    'click .books__create': 'handleCreate',
+    'submit form': 'create',
+    'click .books__create': 'create',
     'click .books__add-field': 'handleAddField',
 
-
     'change .books__custom-field-label': 'handleCustomFieldLabelChange',
-    'click books__custom-field-delete': 'handleCustomFieldDeleteClick',
   },
 
-  handleCreate() {
+  create() {
     let errors = this.model.validate(this.form);
-
 
     if (errors) {
       this.errors = errors;
@@ -79,8 +77,4 @@ export default ItemView.extend({
 
     this.render();
   },
-
-  // handleCustomFieldDeleteClick(event) {
-  //   let customField = this.customFields[customFieldIndex];
-  // },
 });

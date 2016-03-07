@@ -5,6 +5,7 @@ export default Behavior.extend({
   events: {
     'submit form' : 'handleSubmit',
     'change form' : 'serialize',
+    'keypress form': 'handleKeyPress',
   },
 
   initialize() {
@@ -40,5 +41,12 @@ export default Behavior.extend({
   handleSubmit(event) {
     event.preventDefault();
     this.view.form = Syphon.serialize(this);
-  }
+  },
+
+  handleKeyPress(event) {
+    if (event.which === 13) {
+      // TODO: ignore when in textarea
+      this.view.$el.find('form').submit();
+    }
+  },
 });

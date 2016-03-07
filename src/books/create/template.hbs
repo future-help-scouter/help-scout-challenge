@@ -47,20 +47,8 @@
   {{#each customFields}}
     <div class="form-group">
       <label class="col-sm-2 control-label" for="img">{{this.name}}</label>
-      {{!-- <div class="col-sm-2">
-        <input class="form-control books__custom-field-label" data-custom-field-id="{{this.id}}" name="{{this.name}}" type="text" placeholder="{{this.fieldNamePlaceholder}}" value="{{this.name}}">
-      </div> --}}
-
       <div class="col-sm-10">
-      <input type="text" class="form-control" name={{this.name}}>
-
-        {{!-- <div class="input-group">
-          <input type="text" class="form-control" name={{this.name}} placeholder="{{this.name}}">
-          <div class="input-group-addon books__custom-field-delete">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </button>
-          </div>
-        </div> --}}
+        <input type="text" class="form-control" name={{this.name}}>
       </div>
     </div>
   {{/each}}
