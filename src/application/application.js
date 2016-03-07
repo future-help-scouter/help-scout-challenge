@@ -3,10 +3,10 @@ import _ from 'lodash';
 import Radio from 'backbone.radio';
 import nprogress from 'nprogress';
 import {Application} from 'backbone.marionette';
-import {setLang, EN} from './i18n';
+import {setLang, English} from './i18n';
 import LayoutView from './layout-view';
 
-setLang(EN);
+setLang(English);
 
 let routerChannel = Radio.channel('router');
 
