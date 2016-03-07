@@ -3,7 +3,6 @@ import HeaderService from '../header/service';
 import LayoutView from './layout-view';
 import IndexRoute from './index/route';
 import CreateRoute from './create/route';
-import ShowRoute from './show/route';
 import ShowSingleRoute from './show-single/route';
 
 export default Router.extend({
@@ -63,14 +62,6 @@ export default Router.extend({
   create() {
     return new CreateRoute({
       container: this.container
-    });
-  },
-
-  show() {
-    this.ensureLayoutIsPresent();
-
-    return new ShowRoute({
-      layout: this.layout
     });
   },
 
