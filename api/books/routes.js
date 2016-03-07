@@ -1,5 +1,9 @@
 var Backbone = require('backbone');
-var fixture = require('./fixture');
+var fixture = require('./fixture').map(function addDate(item) {
+  return Object.assign(item, {
+    date: Date.now(item.year),
+  });
+});
 var collection = new Backbone.Collection(fixture);
 
 var id = collection.length;
@@ -49,6 +53,7 @@ module.exports = function(api) {
     .post(function(req, res) {
       var model = new Backbone.Model(req.body);
       model.set('id', ++id);
+      model.set('date', Date.now());
       collection.add(model);
       res.json(model);
     });

@@ -12,10 +12,11 @@ export default Route.extend({
   },
 
   fetch() {
-    const {desc} = this.getParamOptions();
+    const {desc, field} = this.getParamOptions();
     let options = {
       data: {
         desc,
+        field,
       },
     };
 
