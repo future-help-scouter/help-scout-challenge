@@ -32,6 +32,10 @@ export default ItemView.extend({
     'click .books__add-field': 'handleAddField',
 
     'change .books__custom-field-label': 'handleCustomFieldLabelChange',
+
+    // shortcuts
+    // TODO: move this to a behavior
+    'keypress': 'handleKeyPress',
   },
 
   create() {
@@ -76,5 +80,9 @@ export default ItemView.extend({
     this.customFields.splice(customFieldIndex, 1, customField);
 
     this.render();
+  },
+
+  handleKeyPress(event) {
+    console.log('handleKeyPress', event);
   },
 });
