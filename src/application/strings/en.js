@@ -12,20 +12,13 @@ export default {
   submit: 'Submit',
   back: 'Back',
 
-  book: {
-    title: 'Title',
-    author: 'Author',
-    year: 'Year',
-    description: 'Description',
-    image: 'Image',
-  },
-
   confirmBookDestroyTitle: 'Confirm Book Destruction',
   confirmBookDestroyMessage: 'Are you sure you want to destroy this book?',
 
   bookDestroyedTitle: 'It\'s gone!',
   bookDestroyedMessage: 'That book will bother you no more.',
 
+  // pages
   layout: {
     title: 'Books',
     createBtn: 'Add a Book',
@@ -41,5 +34,17 @@ export default {
     title: 'Add a Book',
     createBtn: 'Create',
     requiredFieldError: 'This field is required.',
+    addField: 'add a field',
+    fieldNamePlaceholder: 'Field Name',
+    customField: 'Custom Field',
+  },
+
+  // book attributes
+  book: {
+    title: 'Title',
+    author: 'Author',
+    year: 'Year',
+    description: 'Description',
+    image: 'Image',
   },
 };
