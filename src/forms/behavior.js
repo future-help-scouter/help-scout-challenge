@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import Syphon from 'backbone.syphon';
 import {Behavior} from 'backbone.marionette';
 
@@ -44,9 +45,8 @@ export default Behavior.extend({
   },
 
   handleKeyPress(event) {
-    if (event.which === 13) {
-      // TODO: ignore when in textarea
-      this.view.$el.find('form').submit();
+    if (event.which === 13 && event.target.tagName !== 'TEXTAREA') {
+      $(event.target).closest('form').submit();
     }
   },
 });
