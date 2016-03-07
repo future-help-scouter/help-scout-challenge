@@ -11,7 +11,7 @@ export default Router.extend({
     this.listenTo(this, 'before:enter', this.onBeforeEnter);
 
     HeaderService.request('add', {
-      name: 'Books',
+      name: this.lang.books,
       path: 'books',
       type: 'primary'
     });

@@ -1,4 +1,5 @@
 import {Model} from 'backbone';
+import {Router} from 'backbone-routing';
 import {ItemView} from 'backbone.marionette';
 
 export const English = 'en';
@@ -16,5 +17,6 @@ export function setLang(languageCode) {
   // http://ricostacruz.com/backbone-patterns/mixins.html
   ItemView.prototype.lang =
   Model.prototype.lang =
+  Router.prototype.lang =
   loadStrings(languageCode);
 }

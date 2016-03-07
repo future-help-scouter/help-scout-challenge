@@ -19,7 +19,8 @@ export default ItemView.extend({
   templateHelpers() {
     return {
       primaryItems   : this.serializeWhere({ type: 'primary' }),
-      secondaryItems : this.serializeWhere({ type: 'secondary' })
+      secondaryItems : this.serializeWhere({ type: 'secondary' }),
+      lang: this.lang,
     };
   },
 

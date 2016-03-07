@@ -1,4 +1,10 @@
 export default {
+  appName: 'Help Scout Challenge',
+  appWelcomeMessage: 'Please enjoy.',
+
+  toggleNav: 'Toggle Navigation',
+  books: 'Books',
+
   destroy: 'Destroy',
   edit: 'Edit',
   cancel: 'Cancel',
