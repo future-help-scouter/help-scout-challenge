@@ -1,6 +1,7 @@
-// TODO: check language we want to use
-// TODO: add interpolation to personalize messages
-export const lang = {
+import {Model} from 'backbone';
+import {ItemView} from 'backbone.marionette';
+
+const en = {
   destroy: 'Destroy',
   edit: 'Edit',
   cancel: 'Cancel',
@@ -30,5 +31,25 @@ export const lang = {
   create: {
     title: 'Add a Book',
     createBtn: 'Create',
+    requiredFieldError: 'This field is required.',
   },
 };
+
+export const EN = 'English';
+
+export function setLang(languageCode) {
+  let lang;
+
+  // Yeah, I don't have any other languages defined.
+  if (languageCode === EN || true) {
+    lang = en;
+  }
+
+  // TODO: add interpolation to personalize messages
+
+  // Add lang to all ItemViews for convenience.
+  // TODO: Is there a better or more common way to do this?
+  // http://ricostacruz.com/backbone-patterns/mixins.html
+  ItemView.prototype.lang =
+  Model.prototype.lang = lang;
+}

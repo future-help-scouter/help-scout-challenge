@@ -7,13 +7,13 @@ export default Model.extend({
   },
 
   validate(attrs = {}) {
-    let errors = [];
+    let errors = {};
 
     // TODO: create generic validators that return message
     if (!attrs.title) {
-      errors.push('Missing "title" field');
+      errors.title = this.lang.create.requiredFieldError;
     }
 
-    return errors.length > 0 ? errors : undefined;
+    return Object.keys(errors).length ? errors : undefined;
   },
 });

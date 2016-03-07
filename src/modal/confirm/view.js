@@ -1,7 +1,6 @@
 import {ItemView} from 'backbone.marionette';
 import {Model} from 'backbone';
 import template from './template.hbs';
-import {lang} from '../../application/i18n';
 
 export default ItemView.extend({
   template: template,
@@ -12,7 +11,7 @@ export default ItemView.extend({
 
   templateHelpers() {
     return {
-      lang,
+      lang: this.lang,
     };
   },
 

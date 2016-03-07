@@ -29,6 +29,8 @@ Once that's done, open up http://localhost:9000/ in your browser.
 
 # TODO
 
+*
+
 * strings
 
 create book template
@@ -42,3 +44,9 @@ create book template
 
 
 * single book view, img is huge when narrow vp
+
+* use material design for bootstrap - http://fezvrasta.github.io/bootstrap-material-design/#input
+
+* show image preview in book create
+
+* show validation on fields

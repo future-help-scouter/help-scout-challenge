@@ -4,7 +4,6 @@ import FormBehavior from '../../forms/behavior';
 import {history} from 'backbone';
 import template from './template.hbs';
 import storage from '../storage';
-import {lang} from '../../application/i18n';
 
 export default ItemView.extend({
   template: template,
@@ -17,7 +16,7 @@ export default ItemView.extend({
   templateHelpers() {
     return {
       errors: this.errors,
-      lang,
+      lang: this.lang,
     };
   },
 
@@ -28,6 +27,7 @@ export default ItemView.extend({
 
   handleCreate() {
     let errors = this.model.validate(this.form);
+
 
     if (errors) {
       this.errors = errors;
@@ -45,6 +45,7 @@ export default ItemView.extend({
   },
 
   handleCancel() {
+    // TODO: maintain previous query params
     history.navigate('books', { trigger: true });
   },
 });

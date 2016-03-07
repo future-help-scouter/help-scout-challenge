@@ -4,7 +4,6 @@ import ModalService from '../../modal/service';
 import FlashesService from '../../flashes/service';
 import {history} from 'backbone';
 import template from './template.hbs';
-import {lang} from '../../application/i18n';
 
 export default ItemView.extend({
   template: template,
@@ -17,7 +16,7 @@ export default ItemView.extend({
   templateHelpers() {
     return {
       errors: this.model.validationError,
-      lang,
+      lang: this.lang,
     };
   },
 
@@ -36,8 +35,8 @@ export default ItemView.extend({
 
   handleDestroy() {
     ModalService.request('confirm', {
-      title : lang.confirmBookDestroyTitle,
-      text  : lang.confirmBookDestroyMessage,
+      title : this.lang.confirmBookDestroyTitle,
+      text  : this.lang.confirmBookDestroyMessage,
     }).then(confirmed => {
       if (confirmed) {
         nprogress.start();
@@ -54,8 +53,8 @@ export default ItemView.extend({
     FlashesService.request('add', {
       timeout : 5000,
       type    : 'info',
-      title   : lang.bookDestroyedTitle,
-      body    : lang.bookDestroyedMessage,
+      title   : this.lang.bookDestroyedTitle,
+      body    : this.lang.bookDestroyedMessage,
     });
   }
 });

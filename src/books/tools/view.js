@@ -1,7 +1,6 @@
 import {ItemView} from 'backbone.marionette';
 import template from './template.hbs';
 import {history} from 'backbone';
-import {lang} from '../../application/i18n';
 
 export default ItemView.extend({
   template: template,
@@ -14,7 +13,7 @@ export default ItemView.extend({
 
   templateHelpers() {
     return {
-      lang,
+      lang: this.lang,
       thumbs: this.thumbs,
       ascending: !this.descending,
       descending: this.descending,
