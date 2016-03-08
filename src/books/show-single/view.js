@@ -17,7 +17,20 @@ export default ItemView.extend({
     return {
       errors: this.model.validationError,
       lang: this.lang,
+      customFields: this.getCustomFields(),
     };
+  },
+
+  getCustomFields() {
+    var data = this.model.toJSON();
+    return Object.keys(data)
+      .filter(fieldName => fieldName.match(/^custom/))
+      .map(fieldName => {
+        return {
+          name: fieldName,
+          value: data[fieldName],
+        };
+      });
   },
 
   events: {

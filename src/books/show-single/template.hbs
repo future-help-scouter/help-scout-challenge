@@ -19,9 +19,17 @@
     <div class="list-group">
       {{#if description}}
       <div class="list-group-item">
+        <strong>{{lang.book.description}}</strong>
         <p class="list-group-item-text">{{description}}</p>
       </div>
       {{/if}}
+
+      {{#each customFields}}
+      <div class="list-group-item">
+        <strong>{{this.name}}</strong>
+        <p class="list-group-item-text">{{this.value}}</p>
+      </div>
+      {{/each}}
     </div>
   </div>
 </div>
