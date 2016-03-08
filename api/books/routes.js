@@ -1,7 +1,7 @@
 var Backbone = require('backbone');
 var fixture = require('./fixture').map(function addDate(item) {
   return Object.assign(item, {
-    date: Date.now(item.year),
+    date: new Date(item.year),
   });
 });
 var collection = new Backbone.Collection(fixture);
