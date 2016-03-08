@@ -98,7 +98,7 @@ gulp.task('mocha', ['jshint'], function() {
 });
 
 
-gulp.task('integration', function (done) {
+gulp.task('e2e', function (done) {
   var spawn = require('child_process').spawn;
   var gutil = require('gulp-util');
   var path = require('path');
@@ -123,7 +123,9 @@ gulp.task('build', [
   'scripts',
   'fonts',
   'test'
-]);
+], function (done) {
+  done();
+});
 
 gulp.task('test', [
   'jshint',
@@ -145,7 +147,7 @@ gulp.task('watch', ['build'], function() {
     gulp.start('scripts');
     gulp.start('test');
   });
-  gulp.watch('./test/**/*.js', ['integration']);
+  // gulp.watch('./test/**/*.js', ['integration']);
   gulp.watch(['./src/main.less', './src/**/*.less'], ['styles']);
   gulp.watch(['./src/*.html'], ['html']);
 });
