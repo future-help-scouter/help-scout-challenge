@@ -1,7 +1,6 @@
 import {history} from 'backbone';
 import {LayoutView} from 'backbone.marionette';
 import template from './layout-template.hbs';
-import {bindKey, A} from '../application/keybinding';
 
 export default LayoutView.extend({
   template: template,
@@ -16,19 +15,13 @@ export default LayoutView.extend({
     };
   },
 
-  events: {
-    // TODO: move this to a behavior
-    'keypress .books__keypress': 'handleKeyPress',
+  behaviors: {
+    KeyBind: {
+      a: 'createBook',
+    },
   },
 
-  initialize() {
-    bindKey(this, A, this.handleKeyPress);
-  },
-
-  handleKeyPress(event) {
-    if (event.which === A) {
-      // TODO: abstact this into a service.
-      history.navigate('#books/new', { trigger: true });
-    }
+  createBook() {
+    history.navigate('#books/new', { trigger: true });
   },
 });

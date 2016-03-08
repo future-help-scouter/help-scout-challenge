@@ -1,11 +1,14 @@
 import $ from 'jquery';
 import _ from 'lodash';
+
 import Radio from 'backbone.radio';
 import nprogress from 'nprogress';
 import {Application} from 'backbone.marionette';
 import {setLang, English} from './i18n';
 import LayoutView from './layout-view';
 
+
+// TODO: move to main.js
 setLang(English);
 
 let routerChannel = Radio.channel('router');

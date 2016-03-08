@@ -3,6 +3,7 @@ import Backbone from 'backbone';
 import $ from 'jquery';
 
 import Application from './application/application';
+import behaviors from './behaviors';
 
 import ModalService from './modal/service';
 import HeaderService from './header/service';
@@ -12,6 +13,9 @@ import IndexRouter from './index/router';
 import BooksRouter from './books/router';
 
 let app = new Application();
+
+// attach behaviors
+behaviors(app);
 
 ModalService.setup({
   container: app.layout.overlay
