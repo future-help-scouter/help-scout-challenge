@@ -1,6 +1,6 @@
 {
   "name": "help-scout-challenge",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Help Scout Challenge",
   "main": "index.js",
   "scripts": {
