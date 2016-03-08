@@ -4,20 +4,24 @@
       <button class="books__destroy btn btn-danger">{{lang.destroy}}</button>
     </div>
   </div>
-  <h1>{{title}} <small>({{year}})</small></h1>
+  <h1>{{title}} {{#if year}}<small>({{year}})</small>{{/if}}</h1>
   <p class="lead">{{author}}</p>
 </div>
 
 <div class="row">
   <div class="col-md-3">
+    {{#if img}}
     <img class="img-thumbnail" src="{{img}}" alt="{{title}}">
+    {{/if}}
   </div>
 
   <div class="col-md-9">
     <div class="list-group">
+      {{#if description}}
       <div class="list-group-item">
         <p class="list-group-item-text">{{description}}</p>
       </div>
+      {{/if}}
     </div>
   </div>
 </div>
