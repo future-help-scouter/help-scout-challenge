@@ -1,10 +1,7 @@
-import $ from 'jquery';
 import {history} from 'backbone';
 import {LayoutView} from 'backbone.marionette';
 import template from './layout-template.hbs';
-
-// TODO: move to keycodes
-const A = 97;
+import {bindKey, A} from '../application/keybinding';
 
 export default LayoutView.extend({
   template: template,
@@ -25,12 +22,12 @@ export default LayoutView.extend({
   },
 
   initialize() {
-    // TODO: unbind when destroying
-    $('body').bind('keypress', this.handleKeyPress.bind(this));
+    bindKey(this, A, this.handleKeyPress);
   },
 
   handleKeyPress(event) {
     if (event.which === A) {
+      // TODO: abstact this into a service.
       history.navigate('#books/new', { trigger: true });
     }
   },
