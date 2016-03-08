@@ -97,6 +97,26 @@ gulp.task('mocha', ['jshint'], function() {
     .pipe($.mocha({ reporter: reporter }));
 });
 
+
+gulp.task('integration', function () {
+  var spawn = require('child_process').spawn;
+  var gutil = require('gulp-util');
+  var path = require('path');
+
+  var casperChild = spawn('casperjs', [path.join(__dirname, './test/integration.js')]);
+
+  casperChild.stdout.on('data', function (data) {
+      gutil.log('CasperJS:', data.toString().slice(0, -1));
+  });
+
+  casperChild.on('close', function (code) {
+      var success = code === 0; // Will be 1 in the event of failure
+
+      // Do something with success here
+      console.log('done', success);
+  });
+});
+
 gulp.task('build', [
   'clean',
   'html',
@@ -108,7 +128,7 @@ gulp.task('build', [
 
 gulp.task('test', [
   'jshint',
-  'mocha'
+  'mocha',
 ]);
 
 gulp.task('watch', ['build'], function() {
