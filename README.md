@@ -1,55 +1,24 @@
-Marionette Wires
-================
-
-
-## Quick start
-
-[Clone](http://git-scm.com/docs/git-clone) or [download](https://github.com/thejameskyle/marionette-wires/archive/master.zip) this repo.
-
-```sh
-git clone https://github.com/thejameskyle/marionette-wires.git && cd marionette-wires
-```
-
-Make sure [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/) are
-[installed](http://nodejs.org/download/).
-
-```sh
-npm install
-npm install -g gulp
-gulp
-```
-
-Once that's done, open up http://localhost:9000/ in your browser.
-
-
-===
-
-&copy; 2014 James Kyle. Distributed under [ISC license](LICENSE.md).
-
+Help Scout Challenge
+====================
 
 # TODO
 
-
-create book template
-  - use textarea for description
-  - use a better tool for year input
-  - show validation errors on field
-  - create generic validators that return message for use in models
-
-
-* when going back to list, restore thumbs
-
-
-* single book view, img is huge when narrow vp
-
-* use material design for bootstrap - http://fezvrasta.github.io/bootstrap-material-design/#input
-
-* show image preview in book create
-
-* show validation on fields
-* use glyphicons
-
-
 * verify everything builds and runs from scratch
+* tests
 
-* cp  ./node_modules/bootstrap/fonts/* ./dist/fonts/
+
+
+## Install
+
+```sh
+npm install
+npm install -g gulp #if not installed already
+```
+
+## Run
+
+```sh
+gulp
+```
+
+Browse to [http://localhost:3000/](http://localhost:3000/).
