@@ -1,7 +1,7 @@
 var selectXPath = require('casper').selectXPath;
 
 
-casper.test.begin('basic flow', 0, function suite(test) {
+casper.test.begin('basic flow', 7, function suite(test) {
     var bookTitle = 'integration' + Date.now();
     var newBookListSelector = '//*[text()[contains(.,"' + bookTitle + '")]]';
 
