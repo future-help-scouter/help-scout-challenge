@@ -5,7 +5,7 @@ export default {
   toggleNav: 'Toggle Navigation',
   books: 'Books',
 
-  destroy: 'Destroy',
+  destroy: '(D)estroy',
   edit: 'Edit',
   cancel: 'Cancel',
   ok: 'OK',
@@ -21,7 +21,7 @@ export default {
   // pages
   layout: {
     title: 'Books',
-    createBtn: 'Add a Book',
+    createBtn: '(A)dd a Book',
   },
 
   tools: {
