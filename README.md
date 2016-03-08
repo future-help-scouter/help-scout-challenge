@@ -1,13 +1,6 @@
 Help Scout Challenge
 ====================
 
-# TODO
-
-* verify everything builds and runs from scratch
-* tests
-
-
-
 ## Install
 
 ```sh
