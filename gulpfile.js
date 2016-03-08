@@ -98,22 +98,21 @@ gulp.task('mocha', ['jshint'], function() {
 });
 
 
-gulp.task('integration', function () {
+gulp.task('integration', function (done) {
   var spawn = require('child_process').spawn;
   var gutil = require('gulp-util');
   var path = require('path');
 
-  var casperChild = spawn('casperjs', [path.join(__dirname, './test/integration.js')]);
+  var casperChild = spawn('casperjs', ['test', path.join(__dirname, './test/integration.js')]);
 
   casperChild.stdout.on('data', function (data) {
       gutil.log('CasperJS:', data.toString().slice(0, -1));
   });
 
-  casperChild.on('close', function (code) {
-      var success = code === 0; // Will be 1 in the event of failure
-
+  casperChild.on('close', function (/*code*/) {
+      // var success = code === 0; // Will be 1 in the event of failure
       // Do something with success here
-      console.log('done', success);
+      done();
   });
 });
 
@@ -146,7 +145,7 @@ gulp.task('watch', ['build'], function() {
     gulp.start('scripts');
     gulp.start('test');
   });
-  gulp.watch('./test/**/*.js', ['test']);
+  gulp.watch('./test/**/*.js', ['integration']);
   gulp.watch(['./src/main.less', './src/**/*.less'], ['styles']);
   gulp.watch(['./src/*.html'], ['html']);
 });

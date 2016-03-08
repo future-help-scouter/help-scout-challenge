@@ -1,5 +1,7 @@
 {
   "globals": {
+    "casper": true,
+    "__utils__": true,
     "describe"   : true,
     "it"         : true,
     "expect"     : true,
