@@ -4,7 +4,6 @@ import ModalService from '../../modal/service';
 import FlashesService from '../../flashes/service';
 import {history} from 'backbone';
 import template from './template.hbs';
-// import {bindKey, D} from '../../application/keybinding';
 
 export default ItemView.extend({
   template: template,
@@ -12,8 +11,6 @@ export default ItemView.extend({
 
   initialize(options = {}) {
     this.model = options.model;
-    // TODO: BIND ME
-    // bindKey(this, D, this.handleKeyPress);
   },
 
   templateHelpers() {
@@ -29,6 +26,12 @@ export default ItemView.extend({
 
   modelEvents: {
     all: 'render'
+  },
+
+  behaviors: {
+    KeyBind: {
+      d: 'handleDestroy',
+    },
   },
 
   handleDestroy() {
@@ -55,9 +58,5 @@ export default ItemView.extend({
       title   : this.lang.bookDestroyedTitle,
       body    : this.lang.bookDestroyedMessage,
     });
-  },
-
-  handleKeyPress(event) {
-    this.handleDestroy();
   },
 });

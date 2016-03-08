@@ -12,10 +12,18 @@ export function getCode(char) {
   return char.charCodeAt(0);
 }
 
-function getCodeChecker(code, viewHandler) {
+/**
+* factory to return a handler that checks event.which then
+* if it matches
+* @param {Number} code
+* @param {ItemView} view
+* @param {String} handler
+* @return {Function}
+*/
+function bindingFactory(code, view, handler) {
   return function (event) {
     if (event.which === code) {
-      viewHandler(event);
+      view[handler](event);
     }
   };
 }
@@ -25,6 +33,13 @@ export default Behavior.extend({
     this.createKeyBindings(options);
   },
 
+  /**
+  * @example
+  *    KeyBind: {
+  *      a: 'foo',
+  *      b: 'bar'
+  *    },
+  */
   createKeyBindings(options) {
     const me = this;
 
@@ -35,7 +50,7 @@ export default Behavior.extend({
       let handler = options[char];
       let code = getCode(char);
 
-      this.bindings[char] = getCodeChecker(code, me.view[handler]);
+      this.bindings[char] = bindingFactory(code, me.view, handler);
       $('body').bind(EVENT, this.bindings[char]);
     });
   },
